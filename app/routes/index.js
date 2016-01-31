@@ -18,9 +18,9 @@ module.exports = function (app) {
 //	  	console.log('deleting.. '+req.file.filename);
 	  	fs.unlink('temp/'+req.file.filename, function(){});
 
-	  	return res.send(fileSize.toString());
+	  	return res.json({'fileSize':fileSize.toString()});
 	  }
-	  return res.status(400).send('Invalid file.');
+	  return res.status(404).send('Invalid file or not specified.');
 	});
 
 };

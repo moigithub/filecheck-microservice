@@ -28,7 +28,7 @@
 		      contentType: false   // tell jQuery not to set contentType
 		    }).done(function( data ) {
 		    	console.log(data);
-		        alert('File Size :'+ data );
+		        alert('File Size :'+ data.fileSize );
 		    }).fail(function( error ){
 		    	console.log(error);
 		    	alert('Error : '+ error.responseText);
