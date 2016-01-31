@@ -15,8 +15,8 @@ module.exports = function (app) {
 	  if(req.file){
 	  	var fileSize = req.file.size;
 	  	// delete file
-	  	console.log('deleting.. '+req.file.filename);
-	  	fs.unlink(req.file.filename, function(){});
+//	  	console.log('deleting.. '+req.file.filename);
+	  	fs.unlink('temp/'+req.file.filename, function(){});
 
 	  	return res.send(fileSize.toString());
 	  }
