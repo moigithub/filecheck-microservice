@@ -1,7 +1,7 @@
 {
-  "name": "clementinejs-fcc",
+  "name": "file-upload",
   "version": "1.0.1",
-  "description": "The elegant and lightweight boilerplate for full stack JavaScript.",
+  "description": "File metadata analyzer - fcc exercise",
   "main": "server.js",
   "repository": {
     "type": "git",
@@ -21,15 +21,11 @@
   "scripts": {
     "start": "node server.js"
   },
-  "author": "Blake Johnston",
+  "author": "Moises Man",
   "license": "MIT",
   "dependencies": {
-    "dotenv": "^1.2.0",
     "express": "^4.12.4",
-    "express-session": "^1.11.3",
-    "mongoose": "^4.1.0",
-    "multer": "^1.1.0",
-    "passport": "^0.3.0",
-    "passport-github": "^1.0.0"
+    "fs": "0.0.2",
+    "multer": "^1.1.0"
   }
 }

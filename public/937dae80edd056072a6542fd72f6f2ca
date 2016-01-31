@@ -1,0 +1,257 @@
+virtualbox using ubuntu server
+///////////////////////////////
+http://johnstonbl01.github.io/clementinejs/tutorial/tutorial.html#about-mongodb
+https://www.digitalocean.com/community/tutorials/how-to-install-node-js-on-an-ubuntu-14-04-server
+///////////////////////////////
+
+
+MONGODB DONT WORK ON UBUNTU 15. // HAVE TOO MANY HEADACHES
+INSTALL UBUNTU 14.04 64BITS (MONGODB 3.0 ) O 
+UBUNTU 32BITS (MONGODB 2.6 )
+/////////////
+///////////////
+
+
+sudo apt-get update
+
+//PPA
+curl -sL https://deb.nodesource.com/setup | sudo bash -
+
+// install nvm
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.1/install.sh | bash
+
+// .c files to compile
+sudo apt-get install build-essential libssl-dev
+
+sudo apt-get install git
+
+// nvm install
+nvm
+source ~/.profile
+nvm ls-remote
+nvm install 0.12.7
+nvm use 0.12.7
+node -v
+
+nvm alias default 0.12.7
+nvm use default
+
+
+sudo apt-get install g++
+o sino
+sudo aptitude install build-essential <--- instala todos los compiladores/linkers
+
+
+npm install -g yo grunt grunt-cli generator-angular-fullstack
+
+
+yo angular-fullstack
+
+sudo npm install -g bower
+apt
+bower install
+npm install
+
+/// install mongodb
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+
+sudo echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+sudo echo "deb http://repo.mongodb.org/apt/ubuntu "$(lsb_release -sc)"/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+
+
+sudo apt-get update
+
+
+sudo apt-get install -y mongodb-org
+
+
+//specific version
+apt-get install mongodb-org=3.0.0 mongodb-org-server=3.0.0 mongodb-org-shell=3.0.0 mongodb-org-mongos=3.0.0 mongodb-org-tools=3.0.0
+
+
+
+// freeze mongodb version so it not upgrade
+// parece q esto no funciona
+echo "mongodb-org hold" | sudo dpkg --set-selections
+echo "mongodb-org-server hold" | sudo dpkg --set-selections
+echo "mongodb-org-shell hold" | sudo dpkg --set-selections
+echo "mongodb-org-mongos hold" | sudo dpkg --set-selections
+echo "mongodb-org-tools hold" | sudo dpkg --set-selections
+
+
+
+// iniciar mongo
+sudo service mongod start
+
+sudo service mongod stop
+
+sudo service mongod restart
+sudo service mongod status
+
+
+sudo systemctl status mongd
+
+//////////// check if mongo is runninng
+
+grep waiting for connections on port  /var/log/mongodb/mongod.log
+
+find a line with this text
+[initandlisten] waiting for connections on port 
+
+
+
+
+/// remove mongodb
+sudo service mongod stop
+sudo apt-get purge mongodb-org*
+
+sudo rm -r /var/log/mongodb
+sudo rm -r /var/lib/mongodb
+
+
+
+/////////////
+///////////////
+http://askubuntu.com/questions/636119/how-do-i-install-mongodb-3-0-in-vivid#
+
+
+cd
+wget http://repo.mongodb.org/apt/ubuntu/dists/trusty/mongodb-org/3.0/multiverse/binary-amd64/mongodb-org-mongos_3.0.3_amd64.deb
+wget http://repo.mongodb.org/apt/ubuntu/dists/trusty/mongodb-org/3.0/multiverse/binary-amd64/mongodb-org-server_3.0.3_amd64.deb
+wget http://repo.mongodb.org/apt/ubuntu/dists/trusty/mongodb-org/3.0/multiverse/binary-amd64/mongodb-org-shell_3.0.3_amd64.deb
+wget http://repo.mongodb.org/apt/ubuntu/dists/trusty/mongodb-org/3.0/multiverse/binary-amd64/mongodb-org-tools_3.0.3_amd64.deb
+wget http://repo.mongodb.org/apt/ubuntu/dists/trusty/mongodb-org/3.0/multiverse/binary-amd64/mongodb-org_3.0.3_amd64.deb
+
+
+
+sudo dpkg -i mongodb-org-server_3.0.3_amd64.deb
+sudo dpkg -i mongodb-org-tools_3.0.3_amd64.deb
+sudo dpkg -i mongodb-org-shell_3.0.3_amd64.deb
+sudo dpkg -i mongodb-org-mongos_3.0.3_amd64.deb
+sudo dpkg -i mongodb-org_3.0.3_amd64.deb
+
+///all in one.. to resolve dependencies
+sudo dpkg -i mongodb*.deb
+
+
+
+////// usando trusty (asi se llama la version) PPA
+sudo apt-key adv --keyserver hkp://keyserver.ubuntu.com:80 --recv 7F0CEB10
+echo "deb http://repo.mongodb.org/apt/ubuntu trusty/mongodb-org/3.0 multiverse" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+
+
+////// usando wheezy ppa
+sudo apt-get remove mongodb-org
+sudo apt-get autoremove
+sudo rm /etc/apt/sources.list.d/mongodb-org-3.0.list
+sudo echo "deb http://repo.mongodb.org/apt/debian wheezy/mongodb-org/3.0 main" | sudo tee /etc/apt/sources.list.d/mongodb-org-3.0.list
+sudo apt-get update
+sudo apt-get install -y mongodb-org
+
+
+
+/////////// update node on cloud9
+///~/.nvm/versions/node/v0.12.7/lib/node_modules
+
+nvm install 0.12
+nvm use v0.12.7
+nvm alias default v0.12.7
+
+rm -rf * && echo "export NODE_PATH=$NODE_PATH:/home/ubuntu/.nvm/versions/node/v0.12.7/lib/node_modules" >> ~/.bashrc && source ~/.bashrc && npm install -g yo grunt grunt-cli generator-angular-fullstack 
+yo angular-fullstack
+
+
+statistics? no
+javascript
+babel? no
+html
+css
+ngroute
+bootstrap? Y
+UI bootstrap? Y
+mongode+mongoose?  Y
+auth scaffold? Y
+twiter
+socket.io?
+
+
+////npm ERR! errno ECONNREFUSED
+
+yo angular-fullstack  ///again
+
+use previous config.. Y
+override favicon Y
+
+////// Memory limit hit
+/////  A program (npm) hit a memory limit and was killed while running mkdir.
+
+npm install (again)
+(a lot of warnings.. NO ERRORS ) all ok
+
+bower install 
+(command not found)
+
+npm install -g bower
+bower install
+
+statistics? N
+
+
+
+mkdir data && echo 'mongod --bind_ip=$IP --dbpath=data --nojournal --rest "$@"' > mongod && chmod a+x mongod && ./mongod
+
+
+
+grunt serve
+
+some errors.. packages not installed correctly..
+delete node_modules and install all again
+
+npm install
+
+
+
+npm install -g npm@3.0-latest
+
+npm config list
+npm config get key
+npm config set jobs 1
+
+
+
+
+
+
+//////////// koding.com
+node --version // nodejs -v
+npm --version
+nvm --version
+
+//install nvm
+sudo apt-get update
+sudo apt-get install build-essential libssl-dev
+
+curl -o- https://raw.githubusercontent.com/creationix/nvm/v0.26.0/install.sh | bash
+source ~/.profile
+ //nvm ls-remote
+
+nvm install 0.12
+node -v
+nvm alias default 0.12
+nvm use default
+
+////////
+
+
+mkdir mywebproject
+
+echo "export NODE_PATH=$NODE_PATH:/home/ubuntu/.nvm/v0.10.35/lib/node_modules" >> ~/.bashrc && source ~/.bashrc 
+
+npm install -g yo grunt grunt-cli generator-angular-fullstack bower
+yo angular-fullstack
+
+sudo apt-get install mongodb
+
+mkdir data && echo 'mongod --dbpath=data --nojournal --rest "$@"' > mongod && chmod a+x mongod && ./mongod

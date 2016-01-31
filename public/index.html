@@ -4,7 +4,7 @@
 
 	<body>
 		<form id="uploadform" enctype="multipart/form-data">
-		<input type="file" name="the-file" />
+		<input type="file" name="thefile" />
 		<input type="submit" value="Upload" />
 	</form>
 	</body>
@@ -17,6 +17,7 @@
 			event.preventDefault();
 			
 			var fd = new FormData(document.getElementById("uploadform"));
+			console.log(fd);
 		    $.ajax({
 		      url: "/api/fileanalyse",
 		      type: "POST",
