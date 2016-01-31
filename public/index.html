@@ -27,9 +27,11 @@
 		      processData: false,  // tell jQuery not to process the data
 		      contentType: false   // tell jQuery not to set contentType
 		    }).done(function( data ) {
+		    	console.log(data);
 		        alert('File Size :'+ data );
 		    }).fail(function( error ){
-		    	alert('Error : '+ error);
+		    	console.log(error);
+		    	alert('Error : '+ error.responseText);
 		    });
 		   // return false;
 		 });
